@@ -5,9 +5,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
-# --------------------------------------------------
-# 1. Create the DataFrame
-# --------------------------------------------------
+
+# 1. Creating the DataFrame
 
 data = {
     "Age": [
@@ -41,9 +40,9 @@ data = {
 
 df = pd.DataFrame(data)
 
-# --------------------------------------------------
-# 2. Explore the dataset
-# --------------------------------------------------
+
+# 2. Exploring the dataset
+
 
 print("First 5 rows:")
 print(df.head())
@@ -54,9 +53,8 @@ print(df.shape)
 print("\nMissing values:")
 print(df.isnull().sum())
 
-# --------------------------------------------------
-# 3. Visualize Income vs Spending Score
-# --------------------------------------------------
+# 3. Visualizing Income vs Spending Score
+
 
 plt.figure(figsize=(8, 5))
 
@@ -80,16 +78,15 @@ plt.title("Income vs Spending Score")
 plt.legend()
 plt.show()
 
-# --------------------------------------------------
-# 4. Select features and target
-# --------------------------------------------------
+
+# 4. Selecting the  features and the  target
 
 X = df[["Age", "Income", "SpendingScore"]]
 y = df["Purchased"]
 
-# --------------------------------------------------
-# 5. Split data into training and testing sets
-# --------------------------------------------------
+
+# 5. Splitting data into training and testing sets
+
 
 X_train, X_test, y_train, y_test = train_test_split(
     X,
@@ -101,9 +98,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 print("\nTraining data size:", X_train.shape)
 print("Testing data size:", X_test.shape)
 
-# --------------------------------------------------
-# 6. Train Logistic Regression model
-# --------------------------------------------------
+# 6. Training Logistic Regression model
+
 
 model = LogisticRegression()
 
@@ -156,9 +152,8 @@ plt.title("Actual vs Predicted Values")
 plt.legend()
 plt.show()
 
-# --------------------------------------------------
+
 # 10. Predict whether a new customer will purchase
-# --------------------------------------------------
 
 # Example new customer:
 # Age = 29
@@ -166,6 +161,8 @@ plt.show()
 # Spending Score = 70
 
 new_customer = [[29, 42000, 70]]
+
+# if we were to add another example, we could do:
 # new_customer = [[25, 40000, 70]]
 
 prediction = model.predict(new_customer)
